@@ -1,5 +1,6 @@
 import React from 'react';
 import { Leaf, MessageCircle, Globe, Mail, Send } from 'lucide-react';
+import logo from '../../assets/logo.png';
 
 const footerLinks = {
   Product: ['Chat with AI', 'Features', 'How It Works', 'Pricing'],
@@ -19,12 +20,11 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="sm:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center shadow-md">
-                <Leaf size={16} className="text-white" />
-              </div>
+              <img src={logo} alt="PahadiCrop Logo" className="h-14 w-auto"/>            
+
               <div>
                 <span className="font-heading font-bold text-base text-foreground">PahadiCrop</span>
-                <span className="text-[10px] gradient-text font-semibold ml-1">AI</span>
+                
               </div>
             </div>
 
