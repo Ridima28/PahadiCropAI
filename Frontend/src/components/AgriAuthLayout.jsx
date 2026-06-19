@@ -46,7 +46,7 @@ export default function AgriAuthLayout({ title, subtitle, children, footer, back
             Cultivated Intelligence
           </p>
           <p className="text-white/40 text-xs mt-2 max-w-sm leading-relaxed">
-            Your AI-powered farming companion — rooted in data, growing with you.
+            Your AI-powered farming companion - rooted in data, growing with you.
           </p>
         </div>
       </div>
@@ -58,10 +58,10 @@ export default function AgriAuthLayout({ title, subtitle, children, footer, back
           <div className="mb-10">
             <div className="inline-flex items-center gap-2.5 mb-6">
               
-<img src={logoIcon} alt="logo" className="w-5 h-29 object-contain" />
+<img src={logoIcon} alt="logo" className="w-20 h-29 object-contain" />
               
-              <span className="text-xs font-semibold tracking-[0.2em] text-[#2D6A4F] uppercase">
-                Harvest Portal
+              <span className="text-md font-semibold tracking-[0.2em] text-[#2D6A4F] uppercase">
+                PahadiCrop 
               </span>
             </div>
             <h1 className="text-[2rem] font-extrabold text-[#1B4332] leading-tight tracking-tight">
@@ -94,7 +94,7 @@ export default function AgriAuthLayout({ title, subtitle, children, footer, back
           )}
 
           {/* Mobile image hint */}
-          <div className="lg:hidden mt-10 rounded-2xl overflow-hidden h-32 bg-[#0D1B1E] relative">
+          <div className="lg:hidden mt-3 rounded-2xl overflow-hidden h-32 bg-[#0D1B1E] relative">
             <div
               className="absolute inset-0 opacity-40"
               style={{
@@ -106,7 +106,7 @@ export default function AgriAuthLayout({ title, subtitle, children, footer, back
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex items-center gap-2 text-white/80">
                 <Leaf className="w-4 h-4" strokeWidth={1.5} />
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase">Harvest Portal</span>
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase">PahadiCrop</span>
               </div>
             </div>
           </div>

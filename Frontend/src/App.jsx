@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/login" element={<Login onLogin={() => setIsLoggedIn(true)} />} />
+      {/* <Route path="/login" element={<Login onLogin={() => setIsLoggedIn(true)} />} />
 
       <Route
         path="/chat"
@@ -20,7 +20,8 @@ export default function App() {
       <Route
         path="/"
         element={<Navigate to={isLoggedIn ? "/chat" : "/login"} />}
-      />
+      /> */}
+<Route path="/" element={<MainChat />} />
     </Routes>
   );
 }

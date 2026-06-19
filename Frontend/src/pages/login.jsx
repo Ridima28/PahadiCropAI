@@ -89,7 +89,7 @@ export default function Login() {
           <div className="relative">
             <Mail
               className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${
-                focused === "email" ? "text-[#2D6A4F]" : "text-[#D1D5DB]"
+                focused === "email" ? "text-[#53a100]" : "text-[#D1D5DB]"
               }`}
               aria-hidden="true"
             />
@@ -104,7 +104,7 @@ export default function Login() {
               onBlur={() => setFocused(null)}
               className={`w-full h-[52px] pl-10 pr-4 rounded-xl border transition-all duration-200 text-[15px] text-[#1B4332] placeholder-transparent bg-[#F9FAFB] outline-none ${
                 focused === "email"
-                  ? "border-[#52B788] bg-[#D8F3DC]/30 ring-2 ring-[#52B788]/15"
+                  ? "border-[#53a100] bg-[#D8F3DC]/30 ring-2 ring-[#52B788]/15"
                   : "border-[#E5E7EB] hover:border-[#D1D5DB]"
               }`}
               required
@@ -163,7 +163,7 @@ export default function Login() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full h-[52px] rounded-xl bg-[#2D6A4F] hover:bg-[#1B4332] text-white font-semibold text-[15px] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 animate-pulse-glow"
+          className="w-full h-[52px] rounded-xl bg-[#879b00] hover:bg-[#699500] text-white font-semibold text-[15px] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 animate-pulse-glow"
         >
           {loading ? (
             <>

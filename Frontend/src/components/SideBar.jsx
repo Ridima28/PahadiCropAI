@@ -41,7 +41,7 @@ export const SideBar = () => {
           <div className="flex flex-col items-center py-4 gap-5 h-full">
             {/* Logo icon */}
 
-              <img src={logoIcon} className="w-21  object-contain" alt="logo" />
+              <img src={logoIcon} className="w-10  object-contain" alt="logo" />
             
 
             {/* Expand arrow */}
