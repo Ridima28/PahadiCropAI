@@ -17,7 +17,7 @@ export const AppContextProvider = ({ children }) => {
 
   const fetchUserChats = async () => {
     setChats(dummyChats);
-    setSelectedChat(dummyChats[0] || null);
+    setSelectedChat(dummyChats[0]);
   };
 
   // Load user once
