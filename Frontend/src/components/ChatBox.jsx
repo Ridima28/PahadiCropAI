@@ -90,7 +90,7 @@ export const ChatBox = () => {
           </form>
 
           <p className="text-[10px] text-gray-500 text-center mt-1">
-            AI-generated advice — always verify with a licensed extension officer
+            AI-generated advice — always verify  with a licensed extension officer
           </p>
         </div>
       </div>
