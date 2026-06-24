@@ -1,6 +1,7 @@
 import express from 'express'
 import 'dotenv/config'
 import cors from 'cors'
+import userRouter from './routes/userRoutes'
 
 const app = express()
 
@@ -11,6 +12,7 @@ app.use(express.json())
 
 // routes
 app.get('/', (req,res)=> res.send('server is running'))
+app.use('/api/user', userRouter)
 
 const PORT = process.env.PORT || 3000
 
