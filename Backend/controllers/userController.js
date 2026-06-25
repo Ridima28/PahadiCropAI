@@ -1,6 +1,8 @@
 import { JsonWebTokenError } from "jsonwebtoken";
 import jwt from 'jsonwebtoken'
 import { User } from "../models/User.js";
+import bycrypt from 'bcryptjs'
+
 
 //Generate JWT 
 const generateToken = (id) => {
@@ -10,7 +12,7 @@ const generateToken = (id) => {
 }
 
 //Api to register User
-export const registerUser = async(registerUser, res) => {
+export const registerUser = async(req, res) => {
     const {name,email,password} = req.body;
 
     try{
@@ -25,5 +27,42 @@ export const registerUser = async(registerUser, res) => {
     }catch (err){
         return res.json({success: false, message: err.message})
         
+    }
+}
+
+//API To login user
+
+export const loginUser = async(req, res) => {
+    const {email,password} = req.body;
+    try {
+        const user = await User.findOne({email})
+        if (user) {
+            const isMatch = await bcrypt.compare(password, user.password)
+
+            if (isMatch) {
+                const token = generateToken(user._id)
+                return res.json({success:true, token})
+            }
+        }
+        return res.json({success:false, message: 'Invalid email or password'})
+
+    } catch (error) {
+
+        return res.json({success: false, message: err.message})
+
+        
+    }
+
+}
+
+//API to get user data
+
+export const getUser = async(req, res) => {
+    try{
+        const user = req.user;
+        return res.json({success: true,user})
+    }catch(err){
+        return res.json({success: false, message: err.message})
+
     }
 }
