@@ -1,7 +1,6 @@
-import { JsonWebTokenError } from "jsonwebtoken";
 import jwt from 'jsonwebtoken'
 import { User } from "../models/User.js";
-import bycrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs'
 
 
 //Generate JWT 
@@ -46,7 +45,7 @@ export const loginUser = async(req, res) => {
         }
         return res.json({success:false, message: 'Invalid email or password'})
 
-    } catch (error) {
+    } catch (err) {
 
         return res.json({success: false, message: err.message})
 
