@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { User } from "../models/User.js";
+import  User  from "../models/User.js";
 import bcrypt from 'bcryptjs'
 
 
@@ -23,6 +23,7 @@ export const registerUser = async(req, res) => {
 
         const token = generateToken(user._id)
         res.json({success: true, token})
+        
     }catch (err){
         return res.json({success: false, message: err.message})
         
@@ -64,4 +65,5 @@ export const getUser = async(req, res) => {
         return res.json({success: false, message: err.message})
 
     }
+    console.log("👤 getUser executed");
 }
