@@ -1,34 +1,76 @@
 import React, { useState } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import Login from "./pages/login";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
+import Login from "./pages/Login";
 import MainChat from "./pages/MainChat";
-import './assets/prism.css'
-import Loading  from "./pages/loading";
+import Loading from "./pages/loading";
+
+import "./assets/prism.css";
+
+import { useAppContext } from "./context/AppContext";
+
+// Import these if you are using them
+// import Sidebar from "./components/Sidebar";
+// import ChatBox from "./components/ChatBox";
+// import { assets } from "./assets/assets";
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn") === "true"
-  );
+  const { user, loadingUSer } = useAppContext();
 
-  const{pathname} = useLocation()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Show loading while checking authentication
+  if (loadingUSer) {
+    return <Loading />;
+  }
 
   return (
-    <Routes>
-      {/* <Route path="/login" element={<Login onLogin={() => setIsLoggedIn(true)} />} />
+    <>
+      <Toaster />
 
-      <Route
-        path="/chat"
-        element={isLoggedIn ? <MainChat /> : <Navigate to="/login" />}
-      />
+      <Routes>
+        {/* Loading Route */}
+        <Route
+          path="/loading"
+          element={
+            loadingUSer ? (
+              <Loading />
+            ) : user ? (
+              <Navigate to="/" replace />
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
 
-      <Route
-        path="/"
-        element={<Navigate to={isLoggedIn ? "/chat" : "/login"} />}
-      /> */}
-<Route path="/" element={<MainChat />} />  {/* remove this when login is done */}
-<Route path="/loading" element={<Loading />} />   {/* add it in a way that, if user is not logged in, loading will take us to login page */}
+        {/* Login */}
+        <Route
+          path="/login"
+          element={user ? <Navigate to="/" replace /> : <Login />}
+        />
 
-    </Routes>
+        {/* Protected Home */}
+        <Route
+          path="/"
+          element={
+            user ? (
+              <MainChat
+                isMenuOpen={isMenuOpen}
+                setIsMenuOpen={setIsMenuOpen}
+              />
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
+
+        {/* Redirect unknown routes */}
+        <Route
+          path="*"
+          element={<Navigate to={user ? "/" : "/login"} replace />}
+        />
+      </Routes>
+    </>
   );
 }
